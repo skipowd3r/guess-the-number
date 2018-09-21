@@ -17,7 +17,6 @@ if (!process.argv[2]){
     maxNumber = +process.argv[2];
 };
 async function pickGame(){
-    console.log("pick a game");
     let gameChoice = await ask("Let's play a game! Type [1] if you want to guess my number, or type [2] if you want me to guess your number: ");
     if (gameChoice == 1){
         console.log("Okay, you guess! Good luck!");
@@ -32,7 +31,6 @@ async function pickGame(){
 async function playAgain() {
     let yesOrNo = await ask("Would you like to play again? ");
     if (firstLetterOf(yesOrNo) === "Y"){
-        console.log("let's play again");
         pickGame();
     }else if (firstLetterOf(yesOrNo) === "N"){
         console.log("Okay, thanks for playing! See you later!")
@@ -49,7 +47,7 @@ pickGame();
 function initializeGameOne(){
     console.log("Game 1 initializing...");
     let count = 0;
-    secretNumber = pickRandomNumber();
+    let secretNumber = pickRandomNumber();
     console.log(`I have picked a number between 1 and ${maxNumber}. Try to guess it if you can!`);
     //console.log(secretNumber);
     startGameOne(secretNumber, count);
